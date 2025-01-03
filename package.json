@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "cypress:open": "cypress open",
-    "cypress:run": "cypress run"
+    "cypress:run": "cypress run",
+    "test": "npx cypress run --reporter mochawesome --reporter-options reportDir=cypress/reports,reportFilename=report.html,overwrite=true,html=true",
+    "report": "npx mochawesome-merge cypress/reports/*.json > cypress/reports/merged-report.json && npx marge cypress/reports/merged-report.json --reportDir cypress/reports --overwrite"
   },
   "keywords": [],
   "author": "",
